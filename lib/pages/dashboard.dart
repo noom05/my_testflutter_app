@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_testflutter_app/pages/selectrider.dart'; // ✅ นำเข้า SelectRider
+import 'package:my_testflutter_app/pages/send.dart';
+import 'package:my_testflutter_app/pages/trackparcel.dart'; // ✅ นำเข้า SelectRider
 
 class ParcelDashboardScreen extends StatefulWidget {
   const ParcelDashboardScreen({super.key});
@@ -16,14 +17,15 @@ class _ParcelDashboardScreenState extends State<ParcelDashboardScreen> {
       // ✅ กด "หน้าบ้าน" → ไปหน้า SelectRider
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => TrackParcelScreen()),
+        MaterialPageRoute(builder: (context) => SendParcelScreen()),
       );
     } else if (index == 1) {
       // ✅ อยู่หน้า "พัสดุของฉัน" แล้ว ไม่ต้องทำอะไร
-    } else {
-      // 🛠 เพิ่ม logic สำหรับเมนูอื่น ๆ ได้ตามต้องการ
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('เมนูนี้ยังไม่พร้อมใช้งาน')),
+    } else if (index == 3) {
+      // ✅ กด "ติดตาม" → ไปหน้า TrackParcel
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => TrackParcelScreen()),
       );
     }
   }
@@ -45,7 +47,9 @@ class _ParcelDashboardScreenState extends State<ParcelDashboardScreen> {
                   onTap: () => setState(() => selectedTab = 0),
                   child: Container(
                     padding: EdgeInsets.all(12),
-                    color: selectedTab == 0 ? Colors.blue[100] : Colors.grey[200],
+                    color: selectedTab == 0
+                        ? Colors.blue[100]
+                        : Colors.grey[200],
                     child: Center(child: Text('รายการพัสดุที่จัดส่ง')),
                   ),
                 ),
@@ -55,7 +59,9 @@ class _ParcelDashboardScreenState extends State<ParcelDashboardScreen> {
                   onTap: () => setState(() => selectedTab = 1),
                   child: Container(
                     padding: EdgeInsets.all(12),
-                    color: selectedTab == 1 ? Colors.blue[100] : Colors.grey[200],
+                    color: selectedTab == 1
+                        ? Colors.blue[100]
+                        : Colors.grey[200],
                     child: Center(child: Text('รายการพัสดุที่ได้รับ')),
                   ),
                 ),
@@ -88,7 +94,9 @@ class _ParcelDashboardScreenState extends State<ParcelDashboardScreen> {
                 ListTile(
                   leading: Icon(Icons.history),
                   title: Text('Recent Delivery'),
-                  subtitle: Text('คุณยังไม่มีประวัติการส่ง อยากเริ่มส่งวันนี้ไหม?'),
+                  subtitle: Text(
+                    'คุณยังไม่มีประวัติการส่ง อยากเริ่มส่งวันนี้ไหม?',
+                  ),
                 ),
               ],
             ),
@@ -104,9 +112,15 @@ class _ParcelDashboardScreenState extends State<ParcelDashboardScreen> {
         onTap: _onItemTapped,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'หน้าบ้าน'),
-          BottomNavigationBarItem(icon: Icon(Icons.inbox), label: 'พัสดุของฉัน'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.inbox),
+            label: 'พัสดุของฉัน',
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.send), label: 'ส่งพัสดุ'),
-          BottomNavigationBarItem(icon: Icon(Icons.track_changes), label: 'ติดตาม'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.track_changes),
+            label: 'ติดตาม',
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'ไปโปรไฟล์'),
         ],
       ),

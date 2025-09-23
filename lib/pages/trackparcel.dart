@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_testflutter_app/pages/dashboard.dart';
+import 'package:my_testflutter_app/pages/send.dart';
 // import 'package:google_maps_flutter/google_maps_flutter.dart'; // ✅ รอเปิดใช้งาน
 
 class TrackParcelScreen extends StatefulWidget {
@@ -26,12 +27,13 @@ class _TrackParcelScreenState extends State<TrackParcelScreen> {
         MaterialPageRoute(builder: (context) => ParcelDashboardScreen()),
       );
     } else if (index == 2) {
-      // อยู่หน้า "ส่งพัสดุ" แล้ว ไม่ต้องทำอะไร
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('เมนูนี้ยังไม่มีหน้ารองรับ')),
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => SendParcelScreen()),
       );
-    }
+    } else if (index == 3) {
+      // อยู่หน้า "ติดตามพัสดุ" แล้ว ไม่ต้องทำอะไร
+    } 
   }
 
   @override
@@ -92,7 +94,7 @@ class _TrackParcelScreenState extends State<TrackParcelScreen> {
 
       // 🧭 แถบเมนูด้านล่าง
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 2, // ✅ แสดงว่าอยู่ที่ "ส่งพัสดุ"
+        currentIndex: 3, // ✅ แสดงว่าอยู่ที่ "ติดตาม"
         selectedItemColor: Colors.blueAccent,
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
