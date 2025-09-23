@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_testflutter_app/pages/dashboard.dart';
 import 'package:my_testflutter_app/pages/login.dart';
+import 'package:my_testflutter_app/pages/selectrider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: const LoginPage(),
+      home: const ParcelDashboardScreen(),
     );
   }
 }
