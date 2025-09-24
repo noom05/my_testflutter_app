@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // 👋 ทักทายผู้ใช้
+            // ทักทายผู้ใช้
             Row(
               children: [
                 CircleAvatar(
@@ -48,14 +48,14 @@ class HomeScreen extends StatelessWidget {
                 ),
                 SizedBox(width: 12),
                 Text(
-                  'สวัสดี, Nate Samson',
+                  'สวัสดี, BaleKeetak',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
               ],
             ),
             SizedBox(height: 24),
 
-            // 🔍 ช่องค้นหาสถานะพัสดุ
+            // ช่องค้นหาสถานะพัสดุ
             TextField(
               decoration: InputDecoration(
                 hintText: 'ตรวจสอบสถานะพัสดุ',
@@ -69,7 +69,7 @@ class HomeScreen extends StatelessWidget {
             ),
             SizedBox(height: 24),
 
-            // 🧾 เนื้อหาเพิ่มเติม (เช่น รายการล่าสุด, โปรโมชั่น ฯลฯ)
+            // เนื้อหาเพิ่มเติม
             Expanded(
               child: Center(
                 child: Text(
@@ -82,7 +82,7 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
 
-      // 🧭 แถบเมนูด้านล่าง
+      // แถบเมนูด้านล่าง
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 0, // อยู่หน้าแรก
         selectedItemColor: Colors.blueAccent,

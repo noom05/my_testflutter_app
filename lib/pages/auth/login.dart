@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_testflutter_app/pages/user/dashboard.dart';
+import 'package:my_testflutter_app/pages/user/home.dart';
 import 'package:my_testflutter_app/pages/user/trackparcel.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -87,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => ParcelDashboardScreen()),
+                      MaterialPageRoute(builder: (context) => HomeScreen()),
                     );
                   },
                   child: Text('Log In'),

@@ -45,7 +45,7 @@ class _ParcelDashboardScreenState extends State<ParcelDashboardScreen> {
       ),
       body: Column(
         children: [
-          // 🔁 Tabs ด้านบน
+          // Tabs ด้านบน
           Row(
             children: [
               Expanded(
@@ -74,20 +74,23 @@ class _ParcelDashboardScreenState extends State<ParcelDashboardScreen> {
               ),
             ],
           ),
+          SizedBox(height: 16),
 
-          // 🔍 ช่องค้นหาสถานะ
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: TextField(
+          // ช่องค้นหาสถานะพัสดุ
+            TextField(
               decoration: InputDecoration(
-                labelText: 'ตรวจสอบสถานะพัสดุ',
+                hintText: 'ตรวจสอบสถานะพัสดุ',
                 prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(),
+                filled: true,
+                fillColor: Colors.grey[200],
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
               ),
             ),
-          ),
+            SizedBox(height: 24),
 
-          // 📦 รายการพัสดุ
+          // รายการพัสดุ
           Expanded(
             child: ListView(
               children: [
@@ -110,9 +113,9 @@ class _ParcelDashboardScreenState extends State<ParcelDashboardScreen> {
         ],
       ),
 
-      // 🧭 แถบเมนูด้านล่าง
+      // แถบเมนูด้านล่าง
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 1, // ✅ แสดงว่าอยู่ที่ "พัสดุของฉัน"
+        currentIndex: 1, // แสดงว่าอยู่ที่ "พัสดุของฉัน"
         selectedItemColor: Colors.blueAccent,
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,

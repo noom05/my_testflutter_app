@@ -38,7 +38,7 @@ class SendParcelScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // 🔵 ปุ่มสร้างรายการส่งพัสดุ
+          // ปุ่มสร้างรายการส่งพัสดุ
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: SizedBox(
@@ -71,9 +71,9 @@ class SendParcelScreen extends StatelessWidget {
         ],
       ),
 
-      // 🧭 แถบเมนูด้านล่าง
+      // แถบเมนูด้านล่าง
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 2, // ✅ ส่งพัสดุ
+        currentIndex: 2, // ส่งพัสดุ
         selectedItemColor: Colors.blueAccent,
         unselectedItemColor: Colors.grey,
         onTap: (index) => _onItemTapped(context, index),
@@ -84,10 +84,6 @@ class SendParcelScreen extends StatelessWidget {
             label: 'พัสดุของฉัน',
           ),
           BottomNavigationBarItem(icon: Icon(Icons.send), label: 'ส่งพัสดุ'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.track_changes),
-            label: 'ติดตาม',
-          ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'โปรไฟล์'),
         ],
       ),

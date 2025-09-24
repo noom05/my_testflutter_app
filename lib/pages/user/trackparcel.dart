@@ -13,7 +13,7 @@ class TrackParcelScreen extends StatefulWidget {
 }
 
 class _TrackParcelScreenState extends State<TrackParcelScreen> {
-  // GoogleMapController? mapController; // ✅ รอเปิดใช้งาน
+  // GoogleMapController? mapController; // รอเปิดใช้งาน
   // final LatLng _center = const LatLng(13.7563, 100.5018); // Bangkok
 
   final Map<String, String> driverInfo = {
@@ -52,7 +52,7 @@ class _TrackParcelScreenState extends State<TrackParcelScreen> {
       appBar: AppBar(title: Text('ติดตามพัสดุ')),
       body: Stack(
         children: [
-          // ✅ พื้นที่สำหรับแผนที่ (รอเปิดใช้งาน)
+          // พื้นที่สำหรับแผนที่ (รอเปิดใช้งาน)
           /*
           GoogleMap(
             onMapCreated: _onMapCreated,
@@ -73,7 +73,7 @@ class _TrackParcelScreenState extends State<TrackParcelScreen> {
           ),
           */
 
-          // 📦 ข้อมูลคนขับด้านล่าง
+          // ข้อมูลคนขับด้านล่าง
           Positioned(
             bottom: 0,
             left: 0,
@@ -102,7 +102,7 @@ class _TrackParcelScreenState extends State<TrackParcelScreen> {
         ],
       ),
 
-      // 🧭 แถบเมนูด้านล่าง
+      // แถบเมนูด้านล่าง
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.blueAccent,
         unselectedItemColor: Colors.grey,
