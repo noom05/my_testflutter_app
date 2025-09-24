@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_testflutter_app/pages/dashboard.dart';
-import 'package:my_testflutter_app/pages/profile.dart';
-import 'package:my_testflutter_app/pages/trackparcel.dart'; // ถ้ามีหน้า TrackParcelScreen
+import 'package:my_testflutter_app/pages/user/dashboard.dart';
+import 'package:my_testflutter_app/pages/user/home.dart';
+import 'package:my_testflutter_app/pages/user/profile.dart';
+import 'package:my_testflutter_app/pages/user/trackparcel.dart'; // ถ้ามีหน้า TrackParcelScreen
 // import 'package:my_testflutter_app/pages/profile.dart'; // ถ้ามีหน้า ProfileScreen
 
 class SendParcelScreen extends StatelessWidget {
@@ -9,6 +10,10 @@ class SendParcelScreen extends StatelessWidget {
 
   void _onItemTapped(BuildContext context, int index) {
     if (index == 0) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+      );
     } else if (index == 1) {
       Navigator.pushReplacement(
         context,
@@ -17,12 +22,6 @@ class SendParcelScreen extends StatelessWidget {
     } else if (index == 2) {
       // อยู่หน้า "ส่งพัสดุ" แล้ว ไม่ต้องทำอะไร
     } else if (index == 3) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => TrackParcelScreen()),
-      );
-    }
-    else if (index == 4) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => ProfileScreen()),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_testflutter_app/pages/dashboard.dart';
-import 'package:my_testflutter_app/pages/profile.dart';
-import 'package:my_testflutter_app/pages/send.dart';
+import 'package:my_testflutter_app/pages/user/dashboard.dart';
+import 'package:my_testflutter_app/pages/user/home.dart';
+import 'package:my_testflutter_app/pages/user/profile.dart';
+import 'package:my_testflutter_app/pages/user/send.dart';
 // import 'package:google_maps_flutter/google_maps_flutter.dart'; // ✅ รอเปิดใช้งาน
 
 class TrackParcelScreen extends StatefulWidget {
@@ -22,7 +23,12 @@ class _TrackParcelScreenState extends State<TrackParcelScreen> {
   };
 
   void _onItemTapped(int index) {
-    if (index == 1) {
+    if (index == 0) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+      );
+    } else if (index == 2) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => ParcelDashboardScreen()),
@@ -33,8 +39,6 @@ class _TrackParcelScreenState extends State<TrackParcelScreen> {
         MaterialPageRoute(builder: (context) => SendParcelScreen()),
       );
     } else if (index == 3) {
-      // อยู่หน้า "ติดตามพัสดุ" แล้ว ไม่ต้องทำอะไร
-    } else if (index == 4) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => ProfileScreen()),
@@ -100,7 +104,6 @@ class _TrackParcelScreenState extends State<TrackParcelScreen> {
 
       // 🧭 แถบเมนูด้านล่าง
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 3, // ✅ แสดงว่าอยู่ที่ "ติดตาม"
         selectedItemColor: Colors.blueAccent,
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
@@ -108,7 +111,6 @@ class _TrackParcelScreenState extends State<TrackParcelScreen> {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'หน้าบ้าน'),
           BottomNavigationBarItem(icon: Icon(Icons.inbox), label: 'พัสดุของฉัน'),
           BottomNavigationBarItem(icon: Icon(Icons.send), label: 'ส่งพัสดุ'),
-          BottomNavigationBarItem(icon: Icon(Icons.track_changes), label: 'ติดตาม'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'ไปโปรไฟล์'),
         ],
       ),

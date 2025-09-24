@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_testflutter_app/pages/auth/login.dart';
-import 'package:my_testflutter_app/pages/dashboard.dart';
+import 'package:my_testflutter_app/pages/user/dashboard.dart';
 import 'package:my_testflutter_app/pages/other/onboard.dart';
-import 'package:my_testflutter_app/pages/send.dart';
-import 'package:my_testflutter_app/pages/trackparcel.dart';
+import 'package:my_testflutter_app/pages/user/home.dart';
+import 'package:my_testflutter_app/pages/user/send.dart';
+import 'package:my_testflutter_app/pages/user/trackparcel.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -20,7 +21,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final addressController = TextEditingController(text: '12345 จ.ขอนแก่น');
 
   void _onItemTapped(BuildContext context, int index) {
-    if (index == 0 || index == 1) {
+    if (index == 0) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+      );
+    } else if (index == 1) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => ParcelDashboardScreen()),
@@ -29,11 +35,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => SendParcelScreen()),
-      );
-    } else if (index == 3) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => TrackParcelScreen()),
       );
     }
   }
@@ -109,7 +110,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 4,
+        currentIndex: 3,
         selectedItemColor: Colors.blueAccent,
         unselectedItemColor: Colors.grey,
         onTap: (index) => _onItemTapped(context, index),
@@ -117,7 +118,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'หน้าบ้าน'),
           BottomNavigationBarItem(icon: Icon(Icons.inbox), label: 'พัสดุของฉัน'),
           BottomNavigationBarItem(icon: Icon(Icons.send), label: 'ส่งพัสดุ'),
-          BottomNavigationBarItem(icon: Icon(Icons.track_changes), label: 'ติดตาม'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'โปรไฟล์'),
         ],
       ),

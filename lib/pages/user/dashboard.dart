@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_testflutter_app/pages/profile.dart';
-import 'package:my_testflutter_app/pages/send.dart';
-import 'package:my_testflutter_app/pages/trackparcel.dart'; // ✅ นำเข้า SelectRider
+import 'package:my_testflutter_app/pages/user/home.dart';
+import 'package:my_testflutter_app/pages/user/profile.dart';
+import 'package:my_testflutter_app/pages/user/send.dart';
+import 'package:my_testflutter_app/pages/user/trackparcel.dart';
 
 class ParcelDashboardScreen extends StatefulWidget {
   const ParcelDashboardScreen({super.key});
@@ -14,21 +15,20 @@ class _ParcelDashboardScreenState extends State<ParcelDashboardScreen> {
   int selectedTab = 0; // 0 = ส่งแล้ว, 1 = ได้รับ
 
   void _onItemTapped(int index) {
-    if (index == 2) {
-      // ✅ กด "หน้าบ้าน" → ไปหน้า SelectRider
+    if (index == 0) {
+      // กด "หน้าบ้าน" → ไปหน้า SelectRider
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+      );
+    } else if (index == 1) {
+      // อยู่หน้า "พัสดุของฉัน" แล้ว ไม่ต้องทำอะไร
+    } else if (index == 2) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => SendParcelScreen()),
       );
-    } else if (index == 1) {
-      // ✅ อยู่หน้า "พัสดุของฉัน" แล้ว ไม่ต้องทำอะไร
     } else if (index == 3) {
-      // ✅ กด "ติดตาม" → ไปหน้า TrackParcel
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => TrackParcelScreen()),
-      );
-    } else if (index == 4) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => ProfileScreen()),
@@ -123,10 +123,6 @@ class _ParcelDashboardScreenState extends State<ParcelDashboardScreen> {
             label: 'พัสดุของฉัน',
           ),
           BottomNavigationBarItem(icon: Icon(Icons.send), label: 'ส่งพัสดุ'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.track_changes),
-            label: 'ติดตาม',
-          ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'ไปโปรไฟล์'),
         ],
       ),

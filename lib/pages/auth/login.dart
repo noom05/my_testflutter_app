@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_testflutter_app/pages/dashboard.dart';
-import 'package:my_testflutter_app/pages/trackparcel.dart';
+import 'package:my_testflutter_app/pages/user/dashboard.dart';
+import 'package:my_testflutter_app/pages/user/trackparcel.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
