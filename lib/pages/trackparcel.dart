@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_testflutter_app/pages/dashboard.dart';
+import 'package:my_testflutter_app/pages/profile.dart';
 import 'package:my_testflutter_app/pages/send.dart';
 // import 'package:google_maps_flutter/google_maps_flutter.dart'; // ✅ รอเปิดใช้งาน
 
@@ -33,7 +34,12 @@ class _TrackParcelScreenState extends State<TrackParcelScreen> {
       );
     } else if (index == 3) {
       // อยู่หน้า "ติดตามพัสดุ" แล้ว ไม่ต้องทำอะไร
-    } 
+    } else if (index == 4) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => ProfileScreen()),
+      );
+    }
   }
 
   @override

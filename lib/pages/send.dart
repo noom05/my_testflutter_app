@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_testflutter_app/pages/dashboard.dart';
+import 'package:my_testflutter_app/pages/profile.dart';
 import 'package:my_testflutter_app/pages/trackparcel.dart'; // ถ้ามีหน้า TrackParcelScreen
 // import 'package:my_testflutter_app/pages/profile.dart'; // ถ้ามีหน้า ProfileScreen
 
@@ -21,12 +22,12 @@ class SendParcelScreen extends StatelessWidget {
         MaterialPageRoute(builder: (context) => TrackParcelScreen()),
       );
     }
-    // else if (index == 4) {
-    //   Navigator.pushReplacement(
-    //     context,
-    //     MaterialPageRoute(builder: (context) => ProfileScreen()),
-    //   );
-    // }
+    else if (index == 4) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => ProfileScreen()),
+      );
+    }
   }
 
   @override

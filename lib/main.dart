@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_testflutter_app/pages/auth/login.dart';
 import 'package:my_testflutter_app/pages/dashboard.dart';
-import 'package:my_testflutter_app/pages/login.dart';
+import 'package:my_testflutter_app/pages/other/onboard.dart';
+import 'package:my_testflutter_app/pages/profile.dart';
 import 'package:my_testflutter_app/pages/trackparcel.dart';
 
 void main() {
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: const ParcelDashboardScreen(),
+      home: const OnboardScreen(),
     );
   }
 }

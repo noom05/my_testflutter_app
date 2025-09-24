@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_testflutter_app/pages/profile.dart';
 import 'package:my_testflutter_app/pages/send.dart';
 import 'package:my_testflutter_app/pages/trackparcel.dart'; // ✅ นำเข้า SelectRider
 
@@ -26,6 +27,11 @@ class _ParcelDashboardScreenState extends State<ParcelDashboardScreen> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => TrackParcelScreen()),
+      );
+    } else if (index == 4) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => ProfileScreen()),
       );
     }
   }
