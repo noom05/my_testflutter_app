@@ -76,10 +76,10 @@ class _LoginScreenState extends State<LoginScreen> {
               // ปุ่ม Log In
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    foregroundColor: Colors.blue[700],
+                child: OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    side: BorderSide(color: Colors.white),
                     padding: EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0),
@@ -96,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SizedBox(height: 12),
 
-              // ⚪ ปุ่ม Back
+              // ปุ่ม Back
               SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(

@@ -9,7 +9,7 @@ class RoleSelectionScreen extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => RegisterScreen(), // ส่ง role ไปด้วยถ้าต้องการ
+        builder: (context) => RegisterScreen(role: role), // ส่ง role ไปด้วยถ้าต้องการ
       ),
     );
   }
@@ -24,31 +24,21 @@ class RoleSelectionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[700],
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 32.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // ชื่อแอป
-              Text(
-                'FastTrack',
-                style: TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              SizedBox(height: 60),
-
+              
               // ปุ่ม Rider
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    foregroundColor: Colors.blue[700],
+                    backgroundColor: Colors.blue[700],
+                    foregroundColor: Colors.white,
                     padding: EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -65,8 +55,8 @@ class RoleSelectionScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    foregroundColor: Colors.blue[700],
+                    backgroundColor: Colors.blue[700],
+                    foregroundColor: Colors.white,
                     padding: EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -84,7 +74,7 @@ class RoleSelectionScreen extends StatelessWidget {
                 child: Text(
                   'Already have an account? Log In',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.blue[700],
                     fontSize: 16,
                     decoration: TextDecoration.underline,
                   ),
