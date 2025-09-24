@@ -31,6 +31,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('หน้าหลัก'),
         backgroundColor: Colors.blueAccent,
       ),

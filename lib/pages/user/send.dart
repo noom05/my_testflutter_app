@@ -33,6 +33,7 @@ class SendParcelScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('ส่งพัสดุ'),
         backgroundColor: Colors.blueAccent,
       ),

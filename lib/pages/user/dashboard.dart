@@ -40,6 +40,7 @@ class _ParcelDashboardScreenState extends State<ParcelDashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('รายการพัสดุ'),
         backgroundColor: Colors.blueAccent,
       ),
@@ -77,36 +78,134 @@ class _ParcelDashboardScreenState extends State<ParcelDashboardScreen> {
           SizedBox(height: 16),
 
           // ช่องค้นหาสถานะพัสดุ
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'ตรวจสอบสถานะพัสดุ',
-                prefixIcon: Icon(Icons.search),
-                filled: true,
-                fillColor: Colors.grey[200],
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
+          TextField(
+            decoration: InputDecoration(
+              hintText: 'ตรวจสอบสถานะพัสดุ',
+              prefixIcon: Icon(Icons.search),
+              filled: true,
+              fillColor: Colors.grey[200],
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
               ),
             ),
-            SizedBox(height: 24),
+          ),
+          SizedBox(height: 24),
 
           // รายการพัสดุ
           Expanded(
             child: ListView(
+              padding: EdgeInsets.symmetric(horizontal: 12),
               children: [
-                ListTile(
-                  leading: Icon(Icons.local_shipping),
-                  title: Text('Pending Delivery'),
-                  subtitle: Text('คุณยังไม่มีรายการส่งที่รอดำเนินการ'),
-                ),
-                Divider(),
-                ListTile(
-                  leading: Icon(Icons.history),
-                  title: Text('Recent Delivery'),
-                  subtitle: Text(
-                    'คุณยังไม่มีประวัติการส่ง อยากเริ่มส่งวันนี้ไหม?',
+                if (selectedTab == 0) ...[
+                  Text(
+                    'Pending Delivery',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                ),
+                  SizedBox(height: 8),
+                  Card(
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              // รูปภาพพัสดุ
+                              Container(
+                                width: 50,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                      'assets/images/package.png',
+                                    ), // ใส่รูปพัสดุของคุณ
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 12),
+
+                              // ข้อมูลพัสดุ
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'MAY23230024',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text('Destination: ขอนแก่น'),
+                                  ],
+                                ),
+                              ),
+
+                              // ป้ายสถานะ
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 4,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: Colors.amber[600],
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Text(
+                                  'กำลังส่ง',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 8),
+
+                          // วันที่และเวลา
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              '23/05 12:59pm',
+                              style: TextStyle(color: Colors.grey[600]),
+                            ),
+                          ),
+                          SizedBox(height: 12),
+
+                          // ปุ่ม Tracking
+                          SizedBox(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.grey[400],
+                                foregroundColor: Colors.black,
+                                padding: EdgeInsets.symmetric(vertical: 10),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => TrackParcelScreen(),
+                                  ),
+                                );
+                              },
+                              child: Text('Tracking'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ],
             ),
           ),

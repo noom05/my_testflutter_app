@@ -28,7 +28,7 @@ class _TrackParcelScreenState extends State<TrackParcelScreen> {
         context,
         MaterialPageRoute(builder: (context) => HomeScreen()),
       );
-    } else if (index == 2) {
+    } else if (index == 1) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => ParcelDashboardScreen()),
@@ -84,7 +84,11 @@ class _TrackParcelScreenState extends State<TrackParcelScreen> {
               child: Column(
                 children: [
                   ListTile(
-                    leading: Icon(Icons.local_shipping, size: 40, color: Colors.blueAccent),
+                    leading: Icon(
+                      Icons.local_shipping,
+                      size: 40,
+                      color: Colors.blueAccent,
+                    ),
                     title: Text(driverInfo['name'] ?? ''),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,14 +108,18 @@ class _TrackParcelScreenState extends State<TrackParcelScreen> {
 
       // แถบเมนูด้านล่าง
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 1, // ✅ ถ้ามาจาก Dashboard ให้ไฮไลต์ index 1
         selectedItemColor: Colors.blueAccent,
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'หน้าบ้าน'),
-          BottomNavigationBarItem(icon: Icon(Icons.inbox), label: 'พัสดุของฉัน'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.inbox),
+            label: 'พัสดุของฉัน',
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.send), label: 'ส่งพัสดุ'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'ไปโปรไฟล์'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'โปรไฟล์'),
         ],
       ),
     );
